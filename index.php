@@ -1,13 +1,25 @@
 <?php
   include_once 'connection.php';
 
+$sql_read = 'SELECT * FROM colors';
+$sql_add = 'INSERT INTO colors (color, description) VALUES (?, ?)';
+
+
 // Read
-  $sql_read = 'SELECT * FROM colors';
   $gsent = $pdo->prepare($sql_read);
   $gsent->execute();
   $result = $gsent->fetchAll();
 
 //Add
+  if($_POST){
+    $actual_color = $_POST['color'];
+    $actual_description = $_POST['description'];
+
+    $sql_insert = $pdo->prepare($sql_add);
+    $sql_insert->execute(array($actual_color, $actual_description));
+
+    header('location:index.php');
+  }
 
 
 ?>
@@ -29,14 +41,22 @@
 
     <div class="wrapper">
         <div class="container">
-          <?php
-            foreach($result as $dato):
-          ?>
-            <div class="alert alert-<?php echo $dato['color']; ?>">
-              <?php echo $dato['color']; ?><br>-----<br><?php echo $dato['description']?>
+          <div class="row">
+            <div class="col-6 pt-2">
+              <?php foreach($result as $dato): ?>
+                <div class="alert alert-<?php echo $dato['color']; ?>">
+                  <?php echo $dato['color']; ?> - <?php echo $dato['description']?>
+                </div>
+              <?php endforeach ?>
             </div>
-
-          <?php endforeach ?>
+            <div class="col-6">
+              <form method="POST">
+                  <input type="text" name="color" class="form-control my-2" placeholder="Color..." minlength="1" title="No blank field" required>
+                  <input type="text" name="description" class="form-control my-2" placeholder="Description..." minlength="1" title="No blank field required">
+                  <button class="btn btn-primary mt-4">Add</button>
+              </form>
+            </div>
+          </div>
         </div>
     </div>
 
