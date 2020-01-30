@@ -1,0 +1,36 @@
+body{
+  background: rgba(0,0,0,0.04);
+}
+input, select, textarea, label{
+  width: 100% !important;
+  margin: 0;
+  margin-bottom: 8px !important;
+}
+input, select, textarea{
+  border-radius: 0;
+  border: 1px solid lightskyblue;
+  padding: 5px 8px;
+  transition: all 250ms ease;
+  font-size: 17px;
+}
+input:focus, select:focus, textarea:focus{
+  border-radius: 0;
+  outline: none;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+}
+input[type="submit"]{
+  background: lightskyblue;
+  color: white;
+}
+h1{
+  text-transform: uppercase;
+  font-size: 32px;
+  margin: 35px 0;
+}
+.master-container{
+  max-width: 700px;
+  background: white;
+  margin-top: 40px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px 0px rgba(0,0,0,0.2);
+}
