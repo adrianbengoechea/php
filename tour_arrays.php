@@ -1,8 +1,6 @@
 <?php
   $days = array('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday');
-
-
- ?>
+?>
 
  <!DOCTYPE html>
  <html lang="en" dir="ltr">
