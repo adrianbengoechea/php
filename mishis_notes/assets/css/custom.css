@@ -1,0 +1,92 @@
+/*
+COLOR PALLET:
+1. #FFEAD0
+2. #2A324B
+3. #077187
+4. #C7CCDB
+5. #E1E5EE
+*/
+
+body{
+  background: #FFEAD0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  color: #2A324B;
+}
+
+
+h1.title{
+    font-weight: bold;
+    font-size: 46px;
+}
+.main-title{
+  margin-bottom: 75px;
+}
+
+.note{
+  margin-bottom: 20px;
+}
+.note-title{
+  font-size: 19px;
+}
+
+.note-blue .note-title a{
+  color: #2A324B;
+  border-color: #2A324B;
+}
+.note-blue .note-title a.collapsed{
+  color: #FFEAD0;
+  background: #2A324B;
+}
+
+.note-gray .note-title a{
+  color: #077187;
+  border-color: #077187;
+}
+.note-gray .note-title a.collapsed{
+  color: #FFEAD0;
+  background: #077187;
+}
+.note-gray .note-content{
+  border-color: #077187;
+}
+
+.note-title a{
+  padding: 5px 10px;
+  width: 100%;
+  display: block;
+  transition: all 250ms ease-in;
+  background: transparent;
+  border: 2px solid;
+  border-bottom: 0;
+  position: relative;
+  padding-right: 40px;
+  text-decoration: underline ;
+}
+.note-title a.collapsed{
+  text-decoration: none;
+}
+.note-title a.collapsed span{
+  transform: rotate(0deg);
+}
+.note-title a:hover{
+  text-decoration: none;
+}
+.note-title a span{
+  position: absolute;
+  display: flex;
+  right: 6px;
+  top: -2px;
+  bottom: 0;
+  height: auto;
+  align-items: center;
+  transition: all 250ms ease-in;
+  transform: rotate(180deg);
+}
+.note-content{
+    border: 2px solid;
+    border-top: 0;
+}
+.note-content .content{
+  padding: 5px 10px;
+}
