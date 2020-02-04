@@ -3,10 +3,29 @@ define('SITE_ROOT', $_SERVER['DOCUMENT_ROOT'] . '/udemyphp/mishis_notes/');
 require_once( SITE_ROOT . 'connection.php');
 
 
-$query = 'SELECT * FROM notas';
+# Menu options
+?>
+<div class="col-12">
+  <div class="notes-menu">
+    <ul class="list-inline">
+      <li class="list-inline-item">
+        <a href="new-note.php" class="add-note-menu-item">
+          Add note
+          <span>
+            +
+          </span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+
+<?php
+# Here load the notes from userid
+$query = 'SELECT * FROM notas WHERE USERID = 1';
 $query_load = $connection->query($query);
-
-
 
 $count = 1;
 $activator = false;

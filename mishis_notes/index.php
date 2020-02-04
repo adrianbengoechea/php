@@ -10,6 +10,9 @@
       <div class="col-12">
         <div class="container">
           <div class="row">
+            <div class="col-12">
+                <h4 class="mb-3">Here are your notes:</h4>
+            </div>
 
             <?php include_once('assets/template-parts/notes-loader.php'); ?>
 
