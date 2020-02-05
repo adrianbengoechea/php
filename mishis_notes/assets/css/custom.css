@@ -68,7 +68,6 @@ h1.title{
   color: #FFEAD0;
   background: #077187;
 }
-
 .note-gray .note-content{
   border-color: #077187;
 }
@@ -155,4 +154,9 @@ a.add-note-menu-item:hover, a.add-note-menu-item:focus{
   padding-left: 24px;
   display: flex;
   align-items: center;
+}
+
+.custom-alert{
+  margin-top: 25px;
+  border-width: 2px;
 }

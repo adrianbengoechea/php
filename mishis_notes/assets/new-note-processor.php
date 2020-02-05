@@ -4,9 +4,7 @@ require_once( SITE_ROOT . 'connection.php');
 
 
 if(isset($_POST['submit'])){
-  if(trim($_POST['new-note-title']) == '' or trim($_POST['new-note-content'] == '')){
-    header("Location: http://localhost/udemyphp/mishis_notes/new-note.php");
-  }else{
+  if(!trim($_POST['new-note-title']) == '' or !trim($_POST['new-note-content'] == '')){
     # If is all ok...
     // $new-note-title
     // $new-note-content
@@ -18,9 +16,18 @@ if(isset($_POST['submit'])){
     $query_load = $connection->prepare($query);
     $query_load->execute(array(':title'=>$title, ':content'=>$content, ':userid'=>$userid));
 
+
+    alert_message('Added successfully!', 'alert-success');
     redirect_to_home();
+
+  }else{
+
+    alert_message('Some error in the fields sent.', 'alert-danger');
+    header("Location: http://localhost/udemyphp/mishis_notes/new-note.php");
   }
 }else{
+
+  alert_message('Nope!', 'alert-danger');
   redirect_to_home();
 }
 
