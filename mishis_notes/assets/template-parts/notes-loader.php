@@ -5,16 +5,47 @@ require_once( SITE_ROOT . 'connection.php');
 
 # Menu options
 ?>
+
+<div class="modal fade" id="searcher-modal" tabindex="-1" role="dialog" aria-labelledby="#searcher-modal-label" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="searcher">
+          <div class="container">
+            <div class="input-searcher">
+              <form class="searcher-form" action="search.php" method="GET">
+                  <input type="text" name="s" placeholder="Search here...">
+                  <input type="submit">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="col-12">
   <div class="notes-menu">
     <ul class="list-inline">
       <li class="list-inline-item">
-        <a href="new-note.php" class="add-note-menu-item">
+        <a href="new-note.php" class="add-note-menu-item note-menu-item">
           Add note
           <span>
             +
           </span>
         </a>
+
+        <a href="#searcher-modal" data-toggle="modal" class="search-note-menu-item note-menu-item">
+          Search Note
+          <i class="material-icons">search</i>
+        </a>
+
       </li>
     </ul>
   </div>

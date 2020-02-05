@@ -4,8 +4,10 @@ define('SITE_ROOT', $_SERVER['DOCUMENT_ROOT'] . '/udemyphp/mishis_notes/');
 
 # SESSION
 session_start();
-$_SESSION['alert_message'];
-$_SESSION['alert_message_class'];
+if(empty($_SESSION['alert_message']) or empty($_SESSION['alert_message_class'])){
+  $_SESSION['alert_message'] = '';
+  $_SESSION['alert_message_class'] = '';
+}
 
 # FUNCTIONS
 function redirect_to_home(){

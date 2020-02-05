@@ -4,16 +4,25 @@
 <?php
   require_once( SITE_ROOT . 'connection.php');
 
+  $eid = intval($_GET['eid']);
+
   if(isset($_GET)){
-    if(!trim($_GET['eid']) == ''){
-      #If is all ok...
+    if(!trim($eid) == ''){
+      if(is_numeric($eid)){
 
-      $query = 'SELECT * FROM `notas` WHERE `ID` = ' . $_GET['eid'];
-      $query_load = $connection->prepare($query);
-      $query_load->execute();
+        if(!intval($eid) == 0){
+          #If is all ok...
 
-      $title = $query_load->fetchAll();
+          $query = 'SELECT * FROM `notas` WHERE `ID` = ' . intval($eid);
+          $query_load = $connection->prepare($query);
+          $query_load->execute();
 
+          $title = $query_load->fetchAll();
+        }else{
+          alert_message('Some error in the fields sent.', 'alert-danger');
+          redirect_to_home();
+        }
+      }
     }else{
       alert_message('Some error in the fields sent.', 'alert-danger');
       redirect_to_home();
@@ -46,12 +55,13 @@
               <form class="add-notes-form" action="assets/edit-note-processor.php" method="POST">
                   <div class="row">
                     <div class="col-12">
-                        <input type="text" name="new-note-title" placeholder="Note Title:" value="<?php echo $title['0']['TITLE']; ?>">
+                        <input type="text" name="edit-note-title" placeholder="Note Title:" value="<?php echo $title['0']['TITLE']; ?>">
                     </div>
                     <div class="col-12">
-                      <textarea name="new-note-content" rows="8" placeholder="Note Message:"><?php echo $title['0']['CONTENT']; ?></textarea>
+                      <textarea name="edit-note-content" rows="8" placeholder="Note Message:"><?php echo $title['0']['CONTENT']; ?></textarea>
                     </div>
                     <div class="col-12">
+                      <input type="hidden" name="note-id" value="<?php echo $eid; ?>">
                       <input type="submit" name="submit" value="Edit your note!">
                     </div>
                   </div>

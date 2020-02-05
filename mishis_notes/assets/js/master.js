@@ -1,7 +1,7 @@
 jQuery(function(){
 
 
-    jQuery('body').on('click', '.trash', function(){
+    jQuery(document).on('click', '.trash', function(){
       var note_title = jQuery(this).parent('.note-title').find('.single-note-title').html().replace('<span>⯆</span>', '');
       var confirmation = confirm('Are you sure you want to delete this note: ' + note_title );
       var url_delete = jQuery(this).data('trash');
@@ -13,6 +13,7 @@ jQuery(function(){
       }
 
     });
+
 
 
     console.log('OK!');
