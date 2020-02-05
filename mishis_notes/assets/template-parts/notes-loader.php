@@ -1,5 +1,4 @@
 <?php
-define('SITE_ROOT', $_SERVER['DOCUMENT_ROOT'] . '/udemyphp/mishis_notes/');
 require_once( SITE_ROOT . 'connection.php');
 
 
@@ -45,7 +44,8 @@ foreach($query_load as $note){
 
   <div class="col-12 note <?php echo $color; ?>">
     <div class="note-title">
-      <a href="#note_<?php echo $count; ?>" data-toggle="collapse" class="collapsed"><?php echo $note['TITLE']; ?> <span>⯆</span></a>
+      <a href="#note_<?php echo $count; ?>" data-toggle="collapse" class="collapsed"><?php echo $note['TITLE']; ?>  <span>⯆</span></a>
+      <a href="assets/delete-note-processor.php?eid=<?php echo $note['ID']; ?>" class="trash"><i class="material-icons">delete</i></a>
     </div>
     <div class="note-content collapse" id="note_<?php echo $count; ?>">
       <div class="content">

@@ -4,6 +4,9 @@
 <div class="main-wrapper">
   <div class="container-fluid">
     <div class="row">
+      <div class="col-12 go-back">
+        <a href="index.php"> <i class="material-icons">keyboard_arrow_left</i> Go back </a>
+      </div>
       <div class="col-12">
         <h1 class="title main-title text-center mt-5">Hello there!</h1>
       </div>
@@ -17,7 +20,7 @@
               <?php
 
               ?>
-              <form class="add-notes-form" action="assets/add-new-note.php" method="POST">
+              <form class="add-notes-form" action="assets/new-note-processor.php" method="POST">
                   <div class="row">
                     <div class="col-12">
                         <input type="text" name="new-note-title" placeholder="Note Title:">

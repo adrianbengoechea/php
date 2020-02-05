@@ -28,6 +28,23 @@ h1.title{
 }
 .note-title{
   font-size: 19px;
+  position: relative;
+}
+.note-title .trash{
+  position: absolute;
+    top: 10px;
+    margin: 0;
+    padding: 0;
+    display: inline-flex;
+    width: auto;
+    right: 35px;
+    color: #FFEAD0 !important;
+    border: 0 !important;
+    z-index: 1;
+    text-decoration: none; 
+}
+.note-title .trash i{
+    font-size: 20px;
 }
 
 .note-blue .note-title a{
@@ -116,4 +133,22 @@ a.add-note-menu-item{
 a.add-note-menu-item:hover, a.add-note-menu-item:focus{
   background: #2A324B;
   color: #FFEAD0;
+}
+.go-back{
+  position: relative;
+}
+.go-back i{
+  position: absolute;
+  left: 0;
+}
+.go-back a{
+  color: #2A324B;
+  position: absolute;
+  z-index: 1;
+  top: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  padding-left: 24px;
+  display: flex;
+  align-items: center;
 }
