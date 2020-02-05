@@ -42,11 +42,25 @@ h1.title{
     z-index: 1;
     text-decoration: none;
 }
-.note-title .collapsed .trash{
-  color: #FFEAD0 !important;
-}
 .note-title .trash i{
     font-size: 20px;
+}
+
+.note-title .edit{
+  position: absolute;
+    top: 10px;
+    margin: 0;
+    padding: 0;
+    display: inline-flex;
+    width: auto;
+    right: 69px;
+    border: 0 !important;
+    z-index: 1;
+    text-decoration: none;
+}
+.note-title .edit i{
+    font-size: 20px;
+    color: #FFEAD0;
 }
 
 .note-blue .note-title a.trash, .note-gray .note-title a.trash{
@@ -82,9 +96,11 @@ h1.title{
   position: relative;
   padding-right: 40px;
   text-decoration: underline ;
+  z-index: 2;
 }
 .note-title a.collapsed{
   text-decoration: none;
+  z-index: 1;
 }
 .note-title a.collapsed span{
   transform: rotate(0deg);

@@ -2,12 +2,10 @@
 require_once('_init.php');
 require_once( SITE_ROOT . 'connection.php');
 
-
 if(isset($_POST['submit'])){
   if(!trim($_POST['new-note-title']) == '' or !trim($_POST['new-note-content'] == '')){
+
     # If is all ok...
-    // $new-note-title
-    // $new-note-content
     $title = filter_var($_POST["new-note-title"], FILTER_SANITIZE_STRING);
     $content = filter_var($_POST["new-note-content"], FILTER_SANITIZE_STRING);
     $userid = 1;
@@ -22,7 +20,7 @@ if(isset($_POST['submit'])){
 
   }else{
 
-    alert_message('Some error in the fields sent.', 'alert-danger');
+    alert_message('One or more fields have an error.', 'alert-danger');
     header("Location: http://localhost/udemyphp/mishis_notes/new-note.php");
   }
 }else{

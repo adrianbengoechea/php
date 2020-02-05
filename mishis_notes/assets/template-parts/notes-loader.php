@@ -47,6 +47,7 @@ foreach($query_load as $note){
     <div class="note-title">
       <a href="#note_<?php echo $count; ?>" data-toggle="collapse" class="collapsed single-note-title"><?php echo $note['TITLE']; ?>  <span>⯆</span></a>
       <a href="#" data-trash="assets/delete-note-processor.php?eid=<?php echo $note['ID']; ?>" class="trash"><i class="material-icons">delete</i></a>
+      <a href="edit-note.php?eid=<?php echo $note['ID']; ?>" class="edit"><i class="material-icons">edit</i></a>
     </div>
     <div class="note-content collapse" id="note_<?php echo $count; ?>">
       <div class="content">
