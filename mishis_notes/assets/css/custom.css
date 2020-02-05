@@ -38,15 +38,20 @@ h1.title{
     display: inline-flex;
     width: auto;
     right: 35px;
-    color: #FFEAD0 !important;
     border: 0 !important;
     z-index: 1;
-    text-decoration: none; 
+    text-decoration: none;
+}
+.note-title .collapsed .trash{
+  color: #FFEAD0 !important;
 }
 .note-title .trash i{
     font-size: 20px;
 }
 
+.note-blue .note-title a.trash, .note-gray .note-title a.trash{
+  color: #FFEAD0;
+}
 .note-blue .note-title a{
   color: #2A324B;
   border-color: #2A324B;
@@ -55,7 +60,6 @@ h1.title{
   color: #FFEAD0;
   background: #2A324B;
 }
-
 .note-gray .note-title a{
   color: #077187;
   border-color: #077187;
@@ -64,10 +68,10 @@ h1.title{
   color: #FFEAD0;
   background: #077187;
 }
+
 .note-gray .note-content{
   border-color: #077187;
 }
-
 .note-title a{
   padding: 5px 10px;
   width: 100%;

@@ -7,7 +7,7 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 
-  <script src="/assets/js/master.js"></script>
+  <script src="assets/js/master.js"></script>
 
   </body>
 

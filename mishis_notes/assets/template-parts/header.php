@@ -21,3 +21,12 @@
   <body>
 
     <?php require_once('assets/_init.php'); ?>
+
+    <?php if(!trim($_SESSION['alert_message']) == ''): ?>
+      <div class="alert-message">
+        <?php echo $_SESSION['alert_message']; ?>
+      </div>
+    <?php
+      $_SESSION['alert_message'] = '';
+      endif;
+    ?>

@@ -2,6 +2,8 @@
 require_once('_init.php');
 require_once(SITE_ROOT . 'connection.php');
 
+$_SESSION['alert_message'] = 'Deleted successfully!';
+
 if(isset($_GET)){
   if(!trim($_GET['eid']) == ''){
     $id = $_GET['eid'];
