@@ -185,8 +185,6 @@ a.note-menu-item:hover, a.note-menu-item:focus{
   margin-top: 25px;
   border-width: 2px;
 }
-#searcher-modal{}
-
 .searcher .container{
   padding: 0;
 }
@@ -203,11 +201,9 @@ a.note-menu-item:hover, a.note-menu-item:focus{
   width: 25%;
   margin: 0;
 }
-
 #searcher-modal .modal-header, #searcher-modal .modal-body{
   background: #FFEAD0;
   border: 0;
-
 }
 #searcher-modal .modal-header{
   padding: 0;
@@ -230,4 +226,9 @@ a.note-menu-item:hover, a.note-menu-item:focus{
 #searcher-modal .modal-dialog{
   max-width: 900px;
   width: 90%;
+}
+.hidden{
+  display: none;
+  visibility: hidden;
+  opacity: 0;
 }

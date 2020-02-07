@@ -4,8 +4,9 @@ require_once( SITE_ROOT . 'connection.php');
 
 
 # Menu options
-?>
 
+# Search Modal
+?>
 <div class="modal fade" id="searcher-modal" tabindex="-1" role="dialog" aria-labelledby="#searcher-modal-label" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -29,7 +30,10 @@ require_once( SITE_ROOT . 'connection.php');
     </div>
   </div>
 </div>
+<?php
 
+  # Notes Area
+?>
 <div class="col-12">
   <div class="notes-menu">
     <ul class="list-inline">
@@ -62,21 +66,18 @@ $count = 1;
 $activator = false;
 $color = 'note-gray';
 foreach($query_load as $note){
-  ?>
-
-  <?php
-    if($activator == false){
-      $color = 'note-blue';
-      $activator = true;
-    }else{
-      $color = 'note-gray';
-      $activator = false;
-    }
-  ?>
+  if($activator == false){
+    $color = 'note-blue';
+    $activator = true;
+  }else{
+    $color = 'note-gray';
+    $activator = false;
+  }
+?>
 
   <div class="col-12 note <?php echo $color; ?>">
     <div class="note-title">
-      <a href="#note_<?php echo $count; ?>" data-toggle="collapse" class="collapsed single-note-title"><?php echo $note['TITLE']; ?>  <span>⯆</span></a>
+      <a href="#" data-target="#note_<?php echo $count; ?>" data-toggle="collapse" class="collapsed single-note-title"><?php echo $note['TITLE']; ?>  <span>⯆</span></a>
       <a href="#" data-trash="assets/delete-note-processor.php?eid=<?php echo $note['ID']; ?>" class="trash"><i class="material-icons">delete</i></a>
       <a href="edit-note.php?eid=<?php echo $note['ID']; ?>" class="edit"><i class="material-icons">edit</i></a>
     </div>
@@ -91,6 +92,38 @@ foreach($query_load as $note){
   $count++;
 }
 
+if(isset($_GET['s'])):
+  if(!trim($_GET['s'] == '')):
+
+    $to_search = filter_var($_GET['s'], FILTER_SANITIZE_STRING);
+    ?>
+
+      <script>
+        var s = '<?php echo strtolower($to_search); ?>';
+        var notes_number = jQuery('.note').length;
+        var notes_total_elements = 0;
+        jQuery('.note').addClass('hidden');
+        for(var i = 0; i < notes_number; i++){
+          var search_title = jQuery('.note:eq(' + i + ')').find('.single-note-title').html().replace('<span>⯆</span>', '');
+          if(search_title.toLowerCase().indexOf(s) >= 0){
+            console.log(search_title);
+            jQuery('.note:eq(' + i + ')').removeClass('hidden');
+            notes_total_elements++;
+          }
+        }
+        jQuery('.note.hidden').remove();
+        if(jQuery('.search-results-number')){
+          jQuery('.search-results-number').html(notes_total_elements);
+        }
+        if(jQuery('.search-results-title')){
+          jQuery('.search-results-title').html(s);
+
+        }
+      </script>
+
+    <?php
+  endif;
+endif;
 
 
 //

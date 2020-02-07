@@ -37,7 +37,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-12 go-back">
-        <a href="index.php"> <i class="material-icons">keyboard_arrow_left</i> Go back </a>
+        <a href="index.php"> <i class="material-icons">keyboard_arrow_left</i> Go to home </a>
       </div>
       <div class="col-12">
         <h1 class="title main-title text-center mt-5">Hello there!</h1>
