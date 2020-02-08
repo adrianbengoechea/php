@@ -232,3 +232,8 @@ a.note-menu-item:hover, a.note-menu-item:focus{
   visibility: hidden;
   opacity: 0;
 }
+.login-form{
+  width: 90%;
+  max-width: 600px;
+  margin: auto;
+}
