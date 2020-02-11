@@ -140,6 +140,10 @@ input[type="submit"]{
   color: #FFEAD0;
   cursor: pointer;
 }
+input[type="checkbox"], input[type="radio"]{
+  display: inline-block;
+  width: auto;
+}
 a.note-menu-item{
   border: 2px solid #2A324B;
     color: #2A324B;

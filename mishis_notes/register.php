@@ -14,7 +14,7 @@
               <form class="login-form" action="assets/register-processor.php" method="POST">
                 <input type="email" name="login_email" placeholder="Email:" required>
                 <input type="password" name="login_password" placeholder="Password:" required>
-                <input type="password" name="login_confirmt_password" placeholder="Confirm Password:" required>
+                <input type="password" name="login_confirm_password" placeholder="Confirm Password:" required>
                 <input type="submit">
               </form>
             </div>

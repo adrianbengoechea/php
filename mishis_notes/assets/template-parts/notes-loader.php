@@ -1,6 +1,5 @@
 <?php
 # Inside in a content file. _init not required
-require_once( SITE_ROOT . 'connection.php');
 
 
 # Menu options

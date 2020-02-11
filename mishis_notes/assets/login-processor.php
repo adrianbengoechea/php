@@ -1,41 +1,39 @@
 <?php
 require_once('_init.php');
-require_once( SITE_ROOT . 'connection.php');
-
 
 if(isset($_POST)){
   if(!trim($_POST['login_email']) == '' and !trim($_POST['login_password']) == ''){
       #If is all ok...
       $email = filter_var($_POST['login_email'], FILTER_SANITIZE_EMAIL);
       $password = md5($_POST['login_password']);
+      $user_data = db("SELECT * FROM `users` WHERE `EMAIL` = :email AND `PASSWORD` = :pass", array(':email'=>$email, ':pass'=>$password), $connection);
+
+      if(empty($user_data)){
+        alert_message('Incorrect email or password.', 'alert-danger');
+        redirect_to_login();
+      }
 
       if(filter_var($email, FILTER_VALIDATE_EMAIL) === false){
         alert_message('Incorrect email or password.', 'alert-danger');
         redirect_to_login();
       }
 
-      $query = "SELECT * FROM `users` WHERE `EMAIL` = :email AND `PASSWORD` = :pass";
-      $query_load = $connection->prepare($query);
-      $query_load->execute(array(':email'=>$email, ':pass'=>$password));
-      $user_data = $query_load->fetchAll();
 
-      if(empty($user_data)){
-        alert_message('Incorrect email or password.', 'alert-danger');
-        redirect_to_login();
-      }
       if($password == $user_data['0']['PASSWORD'] and $email == $user_data['0']['EMAIL']){
         $rand = rand(1000, 100000);
-        $cookie_value = md5(time() . $rand . $email . time() * 4);
-        $cookie_name = 'login_session_' . md5(time() * $rand);
+        $session_key = md5(time() . $rand . $email);
 
         $query = "INSERT INTO `sessions` (`name`, `key`) VALUES (:name, :key)";
+
         $query_load = $connection->prepare($query);
-        $query_load->execute(array(':name'=>$cookie_name, ':key'=>$cookie_value));
+        $query_load->execute(array(':name'=>md5($email . time()), ':key'=>$session_key));
 
-        $_COOKIE['actual_session'] = $cookie_value;
+        $_SESSION['login_actual_session'] = 'open-session';
+        $_SESSION['login_actual_session_mail'] = md5($email . time());
+        $_SESSION['login_actual_session_key'] = $session_key;
 
 
-        alert_message('Login successfully completed.' . $_COOKIE['actual_session'], 'alert-success');
+        alert_message('Login successfully completed: ' . $_SESSION['login_actual_session_key'], 'alert-success');
         redirect_to_home();
       }
   }else{

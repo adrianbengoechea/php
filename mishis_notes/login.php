@@ -14,6 +14,10 @@
               <form class="login-form" action="assets/login-processor.php" method="POST">
                 <input type="email" name="login_email" placeholder="Email:" required>
                 <input type="password" name="login_password" placeholder="Password:" required>
+                <label>
+                  Remember Me
+                  <input type="checkbox" name="remember_me" value="remember">
+                </label>
                 <input type="submit">
               </form>
             </div>

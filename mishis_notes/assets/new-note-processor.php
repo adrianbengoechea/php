@@ -1,6 +1,5 @@
 <?php
 require_once('_init.php');
-require_once( SITE_ROOT . 'connection.php');
 
 if(isset($_POST['submit'])){
   if(!trim($_POST['new-note-title']) == '' or !trim($_POST['new-note-content'] == '')){
