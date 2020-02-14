@@ -1,4 +1,4 @@
-<?php require_once('assets/template-parts/header.php'); ?>
+<?php require_once('header.php'); ?>
 <!-- <BODY> -->
 
 <div class="main-wrapper">
@@ -20,7 +20,7 @@
               <?php
 
               ?>
-              <form class="add-notes-form" action="assets/new-note-processor.php" method="POST">
+              <form class="add-notes-form" action="app/new-note-processor.php" method="POST">
                   <div class="row">
                     <div class="col-12">
                         <input type="text" name="new-note-title" placeholder="Note Title:">
@@ -41,22 +41,5 @@
   </div>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- </BODY> -->
-<?php require_once('assets/template-parts/footer.php'); ?>
+<?php require_once('footer.php'); ?>

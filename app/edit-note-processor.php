@@ -1,5 +1,5 @@
 <?php
-require_once('_init.php');
+require_once('config.php');
 
 if(isset($_POST['submit'])){
   if(!trim($_POST['edit-note-title']) == '' or !trim($_POST['edit-note-content'] == '')){
@@ -10,9 +10,7 @@ if(isset($_POST['submit'])){
       $element_id = filter_var($_POST["note-id"], FILTER_SANITIZE_STRING);
       $userid = 1;
 
-      $query = "UPDATE `notas` SET `TITLE` = :title, `CONTENT` = :content WHERE `ID` = :id";
-      $query_load = $connection->prepare($query);
-      $query_load->execute(array(':title'=>$title, ':content'=>$content, ':id'=>$element_id));
+      db('UPDATE `notas` SET `TITLE` = :title, `CONTENT` = :content WHERE `ID` = :id', array(':title'=>$title, ':content'=>$content, ':id'=>$element_id));
 
 
       alert_message('Added successfully!', 'alert-success');

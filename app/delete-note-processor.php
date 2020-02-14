@@ -1,5 +1,5 @@
 <?php
-require_once('_init.php');
+require_once('config.php');
 
 $eid = intval($_GET['eid']);
 
@@ -7,11 +7,8 @@ if(isset($_GET)){
   if(!trim($eid) == ''){
     if(!$eid == 0){
       #If is all ok...
-      $id = $eid;
 
-      $query = 'DELETE FROM `notas` WHERE `ID` = ' . $eid;
-      $query_load = $connection->prepare($query);
-      $query_load->execute();
+      db('DELETE FROM `notas` WHERE `ID` = :eid', array(':eid'=>$eid));
 
       alert_message('Deleted successfully!', 'alert-success');
       redirect_to_home();

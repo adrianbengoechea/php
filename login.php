@@ -1,4 +1,4 @@
-<?php require_once('assets/template-parts/header.php'); ?>
+<?php require_once('header.php'); ?>
 <!-- <BODY> -->
 
 <div class="main-wrapper">
@@ -11,7 +11,7 @@
         <div class="container">
           <div class="row">
             <div class="col-12">
-              <form class="login-form" action="assets/login-processor.php" method="POST">
+              <form class="login-form" action="app/login-processor.php" method="POST">
                 <input type="email" name="login_email" placeholder="Email:" required>
                 <input type="password" name="login_password" placeholder="Password:" required>
                 <label>
@@ -29,4 +29,4 @@
 </div>
 
 <!-- </BODY> -->
-<?php require_once('assets/template-parts/footer.php'); ?>
+<?php require_once('footer.php'); ?>

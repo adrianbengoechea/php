@@ -1,4 +1,4 @@
-<?php require_once('assets/template-parts/header.php'); ?>
+<?php require_once('header.php'); ?>
 <!-- <BODY> -->
 
 <div class="main-wrapper">
@@ -14,7 +14,7 @@
                 <h4 class="mb-3">Results of: <span class="search-results-title"></span> <b>(<span class="search-results-number"></span>)</b></h4>
             </div>
 
-            <?php include_once('assets/template-parts/notes-loader.php'); ?>
+            <?php include_once('template-parts/notes-loader.php'); ?>
 
           </div>
         </div>
@@ -23,4 +23,4 @@
   </div>
 </div>
 
-<?php require_once('assets/template-parts/footer.php'); ?>
+<?php require_once('footer.php'); ?>

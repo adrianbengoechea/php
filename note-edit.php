@@ -1,28 +1,18 @@
-<?php require_once('assets/template-parts/header.php'); ?>
+<?php require_once('header.php'); ?>
 <!-- <BODY> -->
 
 <?php
-  require_once( SITE_ROOT . 'connection.php');
 
   $eid = intval($_GET['eid']);
 
   if(isset($_GET)){
-    if(!trim($eid) == ''){
-      if(is_numeric($eid)){
+      if(!trim($eid) == '' and is_numeric($eid) and !intval($eid) == 0){
 
-        if(!intval($eid) == 0){
           #If is all ok...
 
-          $query = 'SELECT * FROM `notas` WHERE `ID` = ' . intval($eid);
-          $query_load = $connection->prepare($query);
-          $query_load->execute();
+          $title = db('SELECT * FROM `notas` WHERE `ID` = :eid', array(':eid'=>$eid));
 
-          $title = $query_load->fetchAll();
-        }else{
-          alert_message('Some error in the fields sent.', 'alert-danger');
-          redirect_to_home();
-        }
-      }
+
     }else{
       alert_message('Some error in the fields sent.', 'alert-danger');
       redirect_to_home();
@@ -52,7 +42,7 @@
               <?php
 
               ?>
-              <form class="add-notes-form" action="assets/edit-note-processor.php" method="POST">
+              <form class="add-notes-form" action="app/edit-note-processor.php" method="POST">
                   <div class="row">
                     <div class="col-12">
                         <input type="text" name="edit-note-title" placeholder="Note Title:" value="<?php echo $title['0']['TITLE']; ?>">
@@ -75,21 +65,5 @@
 </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- </BODY> -->
-<?php require_once('assets/template-parts/footer.php'); ?>
+<?php require_once('footer.php'); ?>
