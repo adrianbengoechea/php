@@ -7,9 +7,8 @@ if(isset($_POST['submit'])){
     # If is all ok...
     $title = filter_var($_POST["new-note-title"], FILTER_SANITIZE_STRING);
     $content = filter_var($_POST["new-note-content"], FILTER_SANITIZE_STRING);
-    $userid = 1;
     
-    db('INSERT INTO `notas` (`TITLE`, `CONTENT`, `USERID`) VALUES (:title, :content, :userid)', array(':title'=>$title, ':content'=>$content, ':userid'=>$userid));
+    db('INSERT INTO `notas` (`title`, `content`, `userid`) VALUES (:title, :content, :userid)', array(':title'=>$title, ':content'=>$content, ':userid'=>$account_id));
 
 
     alert_message('Added successfully!', 'alert-success');

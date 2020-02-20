@@ -13,8 +13,8 @@ jQuery(function(){
       }
 
 		});
-		
-		if(searchnotesloaded == true){
+		if(typeof searchnotesloaded !== 'undefined'){
+			if(searchnotesloaded == true){
 				var search = phpsearch;
 				var elements = jQuery('.note').length;
 
@@ -24,6 +24,7 @@ jQuery(function(){
 				if(jQuery('.search-results-number')){
 					jQuery('.search-results-number').html(elements);
 				}
+			}
 		}
 
 

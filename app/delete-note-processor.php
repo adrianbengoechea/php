@@ -8,7 +8,7 @@ if(isset($_GET)){
     if(!$eid == 0){
       #If is all ok...
 
-      db('DELETE FROM `notas` WHERE `ID` = :eid', array(':eid'=>$eid));
+      db('DELETE FROM `notas` WHERE `id` = :eid AND `userid` = :uid', array(':eid'=>$eid, ':uid'=>$account_id));
 
       alert_message('Deleted successfully!', 'alert-success');
       redirect_to_home();

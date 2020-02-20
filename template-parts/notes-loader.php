@@ -55,7 +55,7 @@
 # Here load the notes from userid
 if(isset($_GET['s']) and !trim($_GET['s'] == '')):
     $to_search = filter_var($_GET['s'], FILTER_SANITIZE_STRING);
-    $notes = db('SELECT * FROM `notas` WHERE `title` LIKE :filter AND `userid` = :uid ', array(':uid'=>1, ':filter'=>"%$to_search%"));
+    $notes = db('SELECT * FROM `notas` WHERE `userid` = :uid AND `title` LIKE :filter ', array(':uid'=>$account_id, ':filter'=>"%$to_search%"));
 		?>
 			<script>
 				var searchnotesloaded = true; 
@@ -63,7 +63,7 @@ if(isset($_GET['s']) and !trim($_GET['s'] == '')):
 			</script>
 		<?php
 	else:
-  $notes = db('SELECT * FROM notas WHERE USERID = :id', array(':id'=>1));
+  $notes = db('SELECT * FROM notas WHERE userid = :id', array(':id'=>$account_id));
 endif;
 
 
@@ -73,56 +73,41 @@ $count = 1;
 $activator = false;
 $color = 'note-gray';
 
-foreach($notes as $note){
-  if($activator == false){
-    $color = 'note-blue';
-    $activator = true;
-  }else{
-    $color = 'note-gray';
-    $activator = false;
-  }
+	if(!empty($notes)){
+		foreach($notes as $note){
+			if($activator == false){
+				$color = 'note-blue';
+				$activator = true;
+			}else{
+				$color = 'note-gray';
+				$activator = false;
+			}
+		?>
+	
+			<div class="col-12 note <?php echo $color; ?>">
+				<div class="note-title">
+					<a href="#" data-target="#note_<?php echo $count; ?>" data-toggle="collapse" class="collapsed single-note-title"><?php echo $note['title']; ?>  <span>⯆</span></a>
+					<a href="#" data-trash="app/delete-note-processor.php?eid=<?php echo $note['id']; ?>" class="trash"><i class="material-icons">delete</i></a>
+					<a href="note-edit.php?eid=<?php echo $note['id']; ?>" class="edit"><i class="material-icons">edit</i></a>
+				</div>
+				<div class="note-content collapse" id="note_<?php echo $count; ?>">
+					<div class="content">
+						<?php echo $note['content']; ?>
+					</div>
+				</div>
+			</div>
+	
+			<?php
+			$count++;
+		}
+	}else{
+		?>
+			<div class="col-12 mt-4">
+				<div class="h4 text-center">
+					You don't have any notes yet.
+				</div>
+			</div>
+		<?php
+	}
+
 ?>
-
-  <div class="col-12 note <?php echo $color; ?>">
-    <div class="note-title">
-      <a href="#" data-target="#note_<?php echo $count; ?>" data-toggle="collapse" class="collapsed single-note-title"><?php echo $note['title']; ?>  <span>⯆</span></a>
-      <a href="#" data-trash="app/delete-note-processor.php?eid=<?php echo $note['id']; ?>" class="trash"><i class="material-icons">delete</i></a>
-      <a href="note-edit.php?eid=<?php echo $note['id']; ?>" class="edit"><i class="material-icons">edit</i></a>
-    </div>
-    <div class="note-content collapse" id="note_<?php echo $count; ?>">
-      <div class="content">
-        <?php echo $note['content']; ?>
-      </div>
-    </div>
-  </div>
-
-  <?php
-  $count++;
-}
-
-?>
-
-      <!-- <script>
-        var s = '<?php echo strtolower($to_search); ?>';
-        var notes_number = jQuery('.note').length;
-        var notes_total_elements = 0;
-        jQuery('.note').addClass('hidden');
-        for(var i = 0; i < notes_number; i++){
-          var search_title = jQuery('.note:eq(' + i + ')').find('.single-note-title').html().replace('<span>⯆</span>', '');
-          if(search_title.toLowerCase().indexOf(s) >= 0){
-            console.log(search_title);
-            jQuery('.note:eq(' + i + ')').removeClass('hidden');
-            notes_total_elements++;
-          }
-        }
-        jQuery('.note.hidden').remove();
-        if(jQuery('.search-results-number')){
-          jQuery('.search-results-number').html(notes_total_elements);
-        }
-        if(jQuery('.search-results-title')){p0ñ''
-          jQuery('.search-results-title').html(s);
-
-        }
-      </script> -->
-
-<!-- INCLUDE FILE -->

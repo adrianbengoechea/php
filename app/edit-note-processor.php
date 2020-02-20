@@ -10,7 +10,7 @@ if(isset($_POST['submit'])){
       $element_id = filter_var($_POST["note-id"], FILTER_SANITIZE_STRING);
       $userid = 1;
 
-      db('UPDATE `notas` SET `TITLE` = :title, `CONTENT` = :content WHERE `ID` = :id', array(':title'=>$title, ':content'=>$content, ':id'=>$element_id));
+      db('UPDATE `notas` SET `title` = :title, `content` = :content WHERE `id` = :id', array(':title'=>$title, ':content'=>$content, ':id'=>$element_id));
 
 
       alert_message('Added successfully!', 'alert-success');

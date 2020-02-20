@@ -10,7 +10,7 @@
 
           #If is all ok...
 
-          $title = db('SELECT * FROM `notas` WHERE `ID` = :eid', array(':eid'=>$eid));
+          $title = db('SELECT * FROM `notas` WHERE `id` = :eid', array(':eid'=>$eid));
 
 
     }else{
@@ -36,7 +36,7 @@
         <div class="container">
           <div class="row">
             <div class="col-12">
-              <h4 class="mb-3">Edit your note: <?php echo $title['0']['TITLE']; ?></h4>
+              <h4 class="mb-3">Edit your note: <?php echo $title['0']['title']; ?></h4>
             </div>
             <div class="col-12">
               <?php
@@ -45,10 +45,10 @@
               <form class="add-notes-form" action="app/edit-note-processor.php" method="POST">
                   <div class="row">
                     <div class="col-12">
-                        <input type="text" name="edit-note-title" placeholder="Note Title:" value="<?php echo $title['0']['TITLE']; ?>">
+                        <input type="text" name="edit-note-title" placeholder="Note Title:" value="<?php echo $title['0']['title']; ?>">
                     </div>
                     <div class="col-12">
-                      <textarea name="edit-note-content" rows="8" placeholder="Note Message:"><?php echo $title['0']['CONTENT']; ?></textarea>
+                      <textarea name="edit-note-content" rows="8" placeholder="Note Message:"><?php echo $title['0']['content']; ?></textarea>
                     </div>
                     <div class="col-12">
                       <input type="hidden" name="note-id" value="<?php echo $eid; ?>">
