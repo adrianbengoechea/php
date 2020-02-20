@@ -14,7 +14,29 @@ body{
   color: #2A324B;
 }
 
-
+a{
+	color: #077187;
+	text-decoration: none;
+	position: relative;
+}
+a::after{
+	content: "";
+	width: 100%;
+	border-bottom: 2px solid;
+	display: block;
+	position: absolute;
+	left: 0;
+	bottom: 0px;
+	transform: scaleX(0);
+	transition: 250ms ease-in;
+}
+a:hover, a:focus{
+	text-decoration: none;
+	color: #077187;
+}
+a:hover::after, a:focus::after{
+	transform: scaleX(1);
+}
 h1.title{
     font-weight: bold;
     font-size: 46px;

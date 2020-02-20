@@ -12,7 +12,19 @@ jQuery(function(){
         return false;
       }
 
-    });
+		});
+		
+		if(searchnotesloaded == true){
+				var search = phpsearch;
+				var elements = jQuery('.note').length;
+
+				if(jQuery('.search-results-title')){
+					jQuery('.search-results-title').html(search);
+				}
+				if(jQuery('.search-results-number')){
+					jQuery('.search-results-number').html(elements);
+				}
+		}
 
 
 

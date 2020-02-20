@@ -51,13 +51,18 @@
 
 
 <?php
+
 # Here load the notes from userid
-
-
-if(isset(a) and !trim($_GET['s'] == '')):
+if(isset($_GET['s']) and !trim($_GET['s'] == '')):
     $to_search = filter_var($_GET['s'], FILTER_SANITIZE_STRING);
     $notes = db('SELECT * FROM `notas` WHERE `title` LIKE :filter AND `userid` = :uid ', array(':uid'=>1, ':filter'=>"%$to_search%"));
-else:
+		?>
+			<script>
+				var searchnotesloaded = true; 
+				var phpsearch = '<?php echo $_GET['s'] ?>';
+			</script>
+		<?php
+	else:
   $notes = db('SELECT * FROM notas WHERE USERID = :id', array(':id'=>1));
 endif;
 

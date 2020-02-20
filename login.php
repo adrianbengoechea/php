@@ -21,7 +21,16 @@
                 <input type="submit">
               </form>
             </div>
-          </div>
+					</div>
+					<div class="row">
+						<div class="col-12 text-center mt-4">
+							<p>
+								¿ Do not you have an account yet ? <br>
+								<a href="register.php">Register</a>
+							</p>
+							
+						</div>
+					</div>
         </div>
       </div>
     </div>
