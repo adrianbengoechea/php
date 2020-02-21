@@ -13,7 +13,7 @@
 		</ul>
 		<ul class="navbar-nav ml-auto">
 			<li class="nav-item mr-3	">
-				<a href="user.php">My Account</a>
+				<a href="javascript:void(0)" class="no-hover"><?php echo $account_email ?></a>
 			</li>
 			<li class="nav-item">
 				<a href="logout.php">Logout</a>

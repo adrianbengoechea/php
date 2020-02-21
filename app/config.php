@@ -20,8 +20,9 @@ if(logged()){
 		}
 	}
 
-	$login_account_id = db('SELECT `id` FROM `users` WHERE `email` = :mail', array(':mail'=>$_SESSION['account']));
-	$account_id = $login_account_id['0']['id'];
+	$login_account_info = db('SELECT * FROM `users` WHERE `email` = :mail', array(':mail'=>$_SESSION['account']));
+	$account_id = $login_account_info['0']['id'];
+	$account_email = $login_account_info['0']['email'];
 }else{
 	foreach($excluded_pages as $page){
 		if($page == $_SERVER['REQUEST_URI']){
