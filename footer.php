@@ -1,4 +1,13 @@
 <!-- FOOTER -->
+		<footer class="footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-12 text-center">
+						© 2020 Buh Notes Company. All Rights Reserved
+					</div>
+				</div>
+			</div>
+		</footer>
 
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 

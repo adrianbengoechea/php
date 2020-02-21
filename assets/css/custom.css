@@ -6,14 +6,22 @@ COLOR PALLET:
 4. #C7CCDB
 5. #E1E5EE
 */
-
+*{
+	margin: 0;
+}
+html, body{
+	height: 100%;
+}
 body{
   background: #FFEAD0;
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
-  color: #2A324B;
+	color: #2A324B;
+	padding-top: 85px;
 }
-
+.main-wrapper{
+	min-height: calc(100% - 135px);
+}
 a{
 	color: #077187;
 	text-decoration: none;
@@ -23,8 +31,8 @@ a:hover, a:focus{
 	text-decoration: underline;
 }
 h1.title{
-    font-weight: bold;
-    font-size: 46px;
+	font-weight: bold;
+	font-size: 46px;
 }
 .main-title{
   margin-bottom: 75px;
@@ -39,35 +47,35 @@ h1.title{
 }
 .note-title .trash{
   position: absolute;
-    top: 10px;
-    margin: 0;
-    padding: 0;
-    display: inline-flex;
-    width: auto;
-    right: 35px;
-    border: 0 !important;
-    z-index: 1;
-    text-decoration: none;
+	top: 10px;
+	margin: 0;
+	padding: 0;
+	display: inline-flex;
+	width: auto;
+	right: 35px;
+	border: 0 !important;
+	z-index: 1;
+	text-decoration: none;
 }
 .note-title .trash i{
-    font-size: 20px;
+	font-size: 20px;
 }
 
 .note-title .edit{
   position: absolute;
-    top: 10px;
-    margin: 0;
-    padding: 0;
-    display: inline-flex;
-    width: auto;
-    right: 69px;
-    border: 0 !important;
-    z-index: 1;
-    text-decoration: none;
+	top: 10px;
+	margin: 0;
+	padding: 0;
+	display: inline-flex;
+	width: auto;
+	right: 69px;
+	border: 0 !important;
+	z-index: 1;
+	text-decoration: none;
 }
 .note-title .edit i{
-    font-size: 20px;
-    color: #FFEAD0;
+	font-size: 20px;
+	color: #FFEAD0;
 }
 
 .note-blue .note-title a.trash, .note-gray .note-title a.trash{
@@ -127,8 +135,8 @@ h1.title{
   transform: rotate(180deg);
 }
 .note-content{
-    border: 2px solid;
-    border-top: 0;
+	border: 2px solid;
+	border-top: 0;
 }
 .note-content .content{
   padding: 5px 10px;
@@ -153,17 +161,18 @@ input[type="checkbox"], input[type="radio"]{
 }
 a.note-menu-item{
   border: 2px solid #2A324B;
-    color: #2A324B;
-    padding: 0px 10px;
-    text-transform: uppercase;
-    font-size: 16px;
-    text-decoration: none;
-    transition: all 250ms ease-in;
-    margin-right: 10px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: flex-start;
-    min-height: 38px;
+	color: #2A324B;
+	padding: 0px 10px;
+	text-transform: uppercase;
+	font-size: 16px;
+	text-decoration: none;
+	transition: all 250ms ease-in;
+	margin-right: 10px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: flex-start;
+	min-height: 38px;
+	margin-bottom: 5px;
 }
 a.note-menu-item i, a.note-menu-item span{
   margin-left: 5px;
@@ -191,7 +200,6 @@ a.note-menu-item:hover, a.note-menu-item:focus{
   display: flex;
   align-items: center;
 }
-
 .custom-alert{
   margin-top: 25px;
   border-width: 2px;
@@ -205,7 +213,7 @@ a.note-menu-item:hover, a.note-menu-item:focus{
   height: 40px;
 }
 .searcher input[name="s"]{
-  width: 750%;
+  width: 75%;
   margin: 0;
 }
 .searcher input[type="submit"]{
@@ -247,4 +255,22 @@ a.note-menu-item:hover, a.note-menu-item:focus{
   width: 90%;
   max-width: 600px;
   margin: auto;
+}
+.navbar{
+	background: #077187 !important;
+	padding: 10px 15px;
+	box-shadow: 0px 0px 7px 7px rgba(0,0,0,0.2);
+}
+.navbar a{
+	color: #FFEAD0;
+}
+.footer{
+	color: #FFEAD0;
+	background: #2A324B !important;
+	bottom: 0;
+	width: 100%;
+	height: 35px;
+	line-height: 35px;
+	background-color: #f5f5f5;
+	margin-top: 100px;
 }

@@ -22,7 +22,6 @@ if(logged()){
 
 	$login_account_id = db('SELECT `id` FROM `users` WHERE `email` = :mail', array(':mail'=>$_SESSION['account']));
 	$account_id = $login_account_id['0']['id'];
-	print_r($account_id);
 }else{
 	foreach($excluded_pages as $page){
 		if($page == $_SERVER['REQUEST_URI']){

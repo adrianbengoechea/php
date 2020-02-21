@@ -9,8 +9,6 @@
   <body>
 
 	<?php require_once('app/config.php'); ?>
-	
-	<?php include_once('template-parts/nav.php'); ?>
 
   <?php include_once('template-parts/alerts.php'); ?>
 

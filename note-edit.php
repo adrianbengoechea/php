@@ -26,9 +26,9 @@
 <div class="main-wrapper">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-12 go-back">
+      <!-- <div class="col-12 go-back">
         <a href="index.php"> <i class="material-icons">keyboard_arrow_left</i> Go to home </a>
-      </div>
+      </div> -->
       <div class="col-12">
         <h1 class="title main-title text-center mt-5">Hello there!</h1>
       </div>
