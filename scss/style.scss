@@ -5,10 +5,26 @@ $color-babyblue: #A3CEF1;
 $color-taupegray: #8B8C89;
 
 
-
-
-
-
 body{
     background: $color-glitter;
+}
+
+
+nav{
+    background: $color-patblue;
+    a, p{
+        color: $color-babyblue;
+    }
+    ul{
+        li{
+            a{
+                color: $color-babyblue;
+            }
+            .btn{
+                color: $color-taupegray;
+                background: $color-babyblue;
+                border-color: $color-babyblue
+            }
+        }
+    }
 }

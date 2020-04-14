@@ -2,4 +2,19 @@ body {
   background: #E7ECEF;
 }
 
+nav {
+  background: #274C77;
+}
+nav a, nav p {
+  color: #A3CEF1;
+}
+nav ul li a {
+  color: #A3CEF1;
+}
+nav ul li .btn {
+  color: #8B8C89;
+  background: #A3CEF1;
+  border-color: #A3CEF1;
+}
+
 /*# sourceMappingURL=style.css.map */
