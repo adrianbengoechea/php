@@ -1,5 +1,5 @@
-<?php 
-    
-    require_once 'views/index.view.php';
+<?php require_once 'function.php';
+
+    require_once 'views/home.view.php';
 
 ?>
