@@ -1,0 +1,23 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "My first Blog project",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShockyKoba/Blog.git"
+  },
+  "author": "ENKI3b3",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShockyKoba/Blog/issues"
+  },
+  "homepage": "https://github.com/ShockyKoba/Blog#readme",
+  "dependencies": {
+    "node-sass": "4.7.2",
+    "sass": "^1.26.3"
+  },
+  "scripts": {
+    "scss": "sass --watch scss/style.scss css/style.css"
+  }
+}
