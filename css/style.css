@@ -1,20 +1,88 @@
-body {
-  background: #E7ECEF;
+/*--------------------- GENERAL ---------------------*/
+html {
+  height: 100%;
 }
 
+body {
+  background: #E7ECEF;
+  height: 100%;
+}
+
+main.wrapper {
+  min-height: calc(100% - 40px);
+}
+main.wrapper .wrapper-content {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+a {
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  font-family: "Baloo Paaji 2";
+}
+a:hover {
+  color: #6096BA;
+}
+
+button, .btn {
+  color: #FFFFFF;
+}
+button:hover, .btn:hover {
+  background: #6096BA;
+}
+
+input, .form-control, select, textarea, button, .btn {
+  border: 0;
+  border-radius: 0;
+  outline: 0;
+  font-family: "Baloo Paaji 2";
+}
+
+/*--------------------- NAVBAR ---------------------*/
 nav {
   background: #274C77;
 }
 nav a, nav p {
   color: #A3CEF1;
 }
+nav ul li {
+  font-size: 16px;
+}
 nav ul li a {
   color: #A3CEF1;
 }
 nav ul li .btn {
-  color: #8B8C89;
+  color: #FFFFFF;
   background: #A3CEF1;
   border-color: #A3CEF1;
+}
+nav ul .nav-contact {
+  font-family: "Baloo Paaji 2";
+  font-weight: 600;
+}
+
+/*--------------------- SECTIONS ---------------------*/
+.block-section #section-posts article.post-article {
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #8B8C89;
+}
+.block-section #section-posts article.post-article .thumbnail {
+  width: 100%;
+  padding-top: 30%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/*--------------------- FOOTER ----------------------------*/
+footer {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  background: #274C77;
+  color: #A3CEF1;
+  font-weight: 600;
 }
 
 /*# sourceMappingURL=style.css.map */

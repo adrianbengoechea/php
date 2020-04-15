@@ -1,30 +1,107 @@
-$color-glitter: #E7ECEF;
-$color-patblue: #274C77;
-$color-lakeblue: #6096BA;
-$color-babyblue: #A3CEF1;
-$color-taupegray: #8B8C89;
+$glitter: #E7ECEF;
+$patblue: #274C77;
+$lakeblue: #6096BA;
+$babyblue: #A3CEF1;
+$taupegray: #8B8C89;
+$intenseblue: #0069d9;
+$white: #FFFFFF;
+
+$font-normal: 16px;
+
+$baloo: 'Baloo Paaji 2';
+
+$animation: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out; 
 
 
+/*--------------------- GENERAL ---------------------*/
+html{
+    height: 100%;
+}
 body{
-    background: $color-glitter;
+    background: $glitter;
+    height: 100%;
+}
+main.wrapper{
+    min-height: calc(100% - 40px);
+    .wrapper-content{
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+}
+a{
+    transition: $animation;
+    font-family: $baloo;
+    &:hover{
+       color: $lakeblue; 
+    }
+}
+button, .btn{
+    color: $white;
+    &:hover{
+        background: $lakeblue; 
+    }
+}
+input, .form-control, select, textarea, button, .btn{
+    border: 0;
+    border-radius: 0;
+    outline: 0;
+    font-family: $baloo;
 }
 
 
+/*--------------------- NAVBAR ---------------------*/
 nav{
-    background: $color-patblue;
+    background: $patblue;
     a, p{
-        color: $color-babyblue;
+        color: $babyblue;
     }
     ul{
         li{
+            font-size: $font-normal;
             a{
-                color: $color-babyblue;
+                color: $babyblue;
             }
             .btn{
-                color: $color-taupegray;
-                background: $color-babyblue;
-                border-color: $color-babyblue
+                color: $white;
+                background: $babyblue;
+                border-color: $babyblue;
+            }
+        }
+        .nav-contact{
+            font-family: $baloo;
+            font-weight: 600;
+        }
+    }
+}
+
+
+/*--------------------- SECTIONS ---------------------*/
+.block-section{
+
+    #section-posts{
+        article.post-article{
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid $taupegray;
+            .thumbnail{
+                width: 100%;
+                padding-top: 30%;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
             }
         }
     }
+
+}
+
+
+/*--------------------- FOOTER ----------------------------*/
+footer{
+    height: 40px;
+    display: flex;
+    align-items: center;
+    background: $patblue;
+    color: $babyblue;
+    font-weight: 600;
 }

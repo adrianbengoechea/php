@@ -1,4 +1,14 @@
-
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p>
+                        © 2020 3b3Team. All Rights Reserved
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
 
     <!-- FRAMEWORKS / LIBRARIES -->

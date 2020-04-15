@@ -12,23 +12,23 @@
 
         <ul class="navbar-nav ml-auto">
 
-            <li class="nav-item">
-                <form class="form-inline">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <li class="nav-item mr-4">
+                <form class="form-inline" action="<?php echo URL; ?>search.php" method="GET">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" name="s" aria-label="Search">
                     <button class="btn btn-primary my-2 my-sm-0" type="submit"><i class="fas fa-search"></i><span class="sr-only">search</span></button>
                 </form>
             </li>
 
-            <li class="nav-item">
+            <li class="nav-item mr-4">
                 <a class="nav-link" href="twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
             </li>
 
-            <li class="nav-item">
+            <li class="nav-item mr-4">
                 <a class="nav-link" href="facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo URL; ?>contact.php">Contact <i class="fas fa-envelope"></i></a>
+                <a class="nav-link text-uppercase nav-contact" href="<?php echo URL; ?>contact.php">Contact <i class="fas fa-envelope ml-2"></i></a>
             </li>
             
         </ul>
