@@ -1,3 +1,4 @@
+/*--------------------- BREAKPOINTS ---------------------*/
 /*--------------------- GENERAL ---------------------*/
 html {
   height: 100%;
@@ -15,6 +16,14 @@ main.wrapper .wrapper-content {
   padding-top: 60px;
   padding-bottom: 60px;
 }
+@media screen and (max-width: 575px) {
+  main.wrapper .wrapper-content {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
 
 a {
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -22,6 +31,24 @@ a {
 }
 a:hover {
   color: #6096BA;
+}
+
+span.semi-bold {
+  font-weight: 600;
+}
+
+p {
+  font-family: "Baloo Paaji 2";
+  font-size: 16px;
+}
+@media screen and (max-width: 575px) {
+  p {
+    font-size: 14px;
+  }
+}
+
+small {
+  font-family: "Baloo Paaji 2";
 }
 
 button, .btn {
@@ -38,34 +65,255 @@ input, .form-control, select, textarea, button, .btn {
   font-family: "Baloo Paaji 2";
 }
 
-/*--------------------- NAVBAR ---------------------*/
-nav {
+form input[type=submit] {
+  padding: 8px 20px;
   background: #274C77;
+  border: 1px solid #274C77;
+  color: #A3CEF1;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
-nav a, nav p {
+form input[type=submit]:hover {
+  background: #E7ECEF;
+  color: #274C77;
+}
+form label {
+  width: 100%;
+}
+form label input, form label select, form label textarea {
+  width: 100%;
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  font-size: 16px;
+  border: 1px solid #FFFFFF;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+form label input:focus, form label select:focus, form label textarea:focus {
+  border-color: #274C77;
+}
+form label textarea {
+  min-height: 100px;
+}
+
+#form-contact .row .col-12 {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  padding: 30px 15px 0 15px;
+}
+.pagination ul {
+  display: flex;
+}
+.pagination li {
+  width: 35px;
+  height: 35px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 5px !important;
+  background: #274C77;
+  border: 1px solid #274C77;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  text-decoration: none;
+}
+.pagination li.disabled {
+  background: gray;
+  border-color: gray;
+  opacity: 0.5;
+  color: white !important;
+  cursor: default;
+}
+.pagination li.disabled a {
+  cursor: default;
+  color: white !important;
+}
+.pagination li.disabled a span {
+  color: white !important;
+}
+.pagination li.disabled a:hover {
+  color: white !important;
+}
+.pagination li.active {
+  background: #A3CEF1;
+  border-color: #A3CEF1;
+}
+.pagination li.active a {
+  color: #274C77 !important;
+}
+.pagination li:not(.disabled):hover {
+  background-color: #E7ECEF;
+  color: #274C77;
+}
+.pagination li:not(.disabled):hover a {
+  color: #274C77 !important;
+  text-decoration: none;
+}
+.pagination li a, .pagination li span {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #A3CEF1 !important;
+  font-weight: 600;
+  font-weight: "Baloo Paaji 2";
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  text-decoration: none;
+}
+.pagination li a:hover, .pagination li span:hover {
+  color: #274C77 !important;
+}
+.pagination span {
+  font-size: 14px;
+}
+
+/*--------------------- NAVBAR ---------------------*/
+nav.navbar {
+  background: #274C77;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.5);
+}
+nav.navbar .navbar-toggler {
+  color: #A3CEF1;
+  padding: 0;
+  border: 1px solid;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+}
+@media screen and (max-width: 767px) {
+  nav.navbar .search-form {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+  }
+}
+nav.navbar .nav-social-icon {
+  display: inline-block;
+  margin-right: 15px;
+}
+nav.navbar a, nav.navbar p {
   color: #A3CEF1;
 }
-nav ul li {
+nav.navbar a.nav-link:hover {
+  color: #6096BA !important;
+}
+nav.navbar ul li {
   font-size: 16px;
 }
-nav ul li a {
+nav.navbar ul li a {
   color: #A3CEF1;
 }
-nav ul li .btn {
+nav.navbar ul li .btn {
   color: #FFFFFF;
   background: #A3CEF1;
   border-color: #A3CEF1;
 }
-nav ul .nav-contact {
+nav.navbar ul .nav-contact {
   font-family: "Baloo Paaji 2";
   font-weight: 600;
 }
 
+/*--------------------- BANNER ---------------------*/
+.banner {
+  padding-top: 30%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+@media screen and (max-width: 991px) {
+  .banner {
+    min-height: 350px;
+  }
+}
+@media screen and (max-width: 575px) {
+  .banner {
+    min-height: 250px;
+  }
+}
+.banner .banner-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding-left: 40px;
+}
+@media screen and (max-width: 575px) {
+  .banner .banner-content {
+    padding-left: 15px;
+  }
+}
+.banner .banner-content .container h1 {
+  color: white;
+  font-size: 72px;
+  text-transform: uppercase;
+  text-shadow: -5px 5px 5px rgba(0, 0, 0, 0.5);
+}
+@media screen and (max-width: 991px) {
+  .banner .banner-content .container h1 {
+    font-size: 56px;
+  }
+}
+@media screen and (max-width: 575px) {
+  .banner .banner-content .container h1 {
+    font-size: 32px;
+  }
+}
+.banner::before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
 /*--------------------- SECTIONS ---------------------*/
+.block-section a {
+  color: #274C77;
+}
+.block-section small {
+  margin-bottom: 10px;
+  display: block;
+  font-size: 16px;
+}
 .block-section #section-posts article.post-article {
-  margin-bottom: 30px;
-  padding-bottom: 30px;
-  border-bottom: 1px solid #8B8C89;
+  width: 90%;
+  margin: 60px auto 0 auto;
+  padding-bottom: 60px;
+  border-bottom: 1px solid rgba(139, 140, 137, 0.5);
+}
+@media screen and (max-width: 575px) {
+  .block-section #section-posts article.post-article {
+    padding-bottom: 20px;
+    margin: 20px auto 0 auto;
+  }
+}
+.block-section #section-posts article.post-article .post-article-content {
+  background: white;
+  padding: 20px 30px 60px 30px;
+  border-radius: 4px;
+  box-shadow: -5px 5px 15px -5px rgba(0, 0, 0, 0.5);
+}
+@media screen and (max-width: 575px) {
+  .block-section #section-posts article.post-article .post-article-content {
+    padding: 10px 15px;
+  }
 }
 .block-section #section-posts article.post-article .thumbnail {
   width: 100%;
@@ -73,6 +321,37 @@ nav ul .nav-contact {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  margin-bottom: 30px;
+  margin-top: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid;
+}
+@media screen and (max-width: 575px) {
+  .block-section #section-posts article.post-article .thumbnail {
+    padding-top: 60%;
+  }
+}
+.block-section .the-post-section .block-section-content .container {
+  background: white;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-radius: 5px;
+}
+.block-section .the-post-section .block-section-content .container img {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.block-section .the-post-section .block-section-content .container small {
+  display: inline-block;
+  margin-right: 15px;
+}
+.block-section .the-post-section .block-section-content .container p {
+  border-top: 2px solid #274C77;
+  border-bottom: 2px solid #274C77;
+  padding: 30px 0px;
+  margin-top: 7px;
 }
 
 /*--------------------- FOOTER ----------------------------*/

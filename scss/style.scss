@@ -1,16 +1,15 @@
-$glitter: #E7ECEF;
-$patblue: #274C77;
-$lakeblue: #6096BA;
-$babyblue: #A3CEF1;
-$taupegray: #8B8C89;
-$intenseblue: #0069d9;
-$white: #FFFFFF;
+
+$transparency: 0.5;
 
 $font-normal: 16px;
+$font-normal-mobile: 14px;
 
 $baloo: 'Baloo Paaji 2';
+$animation: color .15s ease-in-out, background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out; 
 
-$animation: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out; 
+@import 'colors.scss';
+
+@import 'breakpoints'; 
 
 
 /*--------------------- GENERAL ---------------------*/
@@ -26,6 +25,12 @@ main.wrapper{
     .wrapper-content{
         padding-top: 60px;
         padding-bottom: 60px;
+        @include max-sm{
+            padding-top: 30px;
+            padding-bottom: 30px;
+            padding-left: 0;
+            padding-right: 0;
+        }
     }
 }
 a{
@@ -34,6 +39,21 @@ a{
     &:hover{
        color: $lakeblue; 
     }
+}
+span{
+    &.semi-bold{
+        font-weight: 600;
+    }
+}
+p{
+    font-family: $baloo;
+    font-size: $font-normal;
+    @include max-sm{
+        font-size: $font-normal-mobile;
+    }
+}
+small{
+    font-family: $baloo;
 }
 button, .btn{
     color: $white;
@@ -48,12 +68,153 @@ input, .form-control, select, textarea, button, .btn{
     font-family: $baloo;
 }
 
+form{
+    input[type="submit"]{
+        padding: 8px 20px;
+        background: $patblue;
+        border: 1px solid $patblue;
+        color: $babyblue;
+        transition: $animation;
+        &:hover{
+            background: $glitter;
+            color: $patblue;
+        }
+    }
+    label{
+        width: 100%;
+        input, select, textarea{
+            width: 100%;    
+            padding: 8px 12px;
+            margin-bottom: 8px;
+            font-size: $font-normal;
+            border: 1px solid $white;
+            transition: $animation;
+            &:focus{
+                border-color: $patblue;
+            }
+        }
+        textarea{
+            min-height: 100px;
+        }
+    }
+}
+
+#form-contact{
+    .row{
+        .col-12{
+            padding-left: 8px;
+            padding-right: 8px;
+        }
+    }
+}
+
+.pagination{
+    display: flex;
+    justify-content: center;
+    padding: 30px 15px 0 15px;
+    ul{
+        display: flex;
+    }
+    li{
+        width: 35px;
+        height: 35px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 5px !important;
+        background: $patblue;
+        border: 1px solid $patblue;
+        transition: $animation;
+        text-decoration: none;
+        &.disabled{
+            background: gray;
+            border-color: gray;
+            opacity: 0.5;
+            color: white !important;
+            cursor: default;
+            a{
+                cursor: default;
+                color: white !important;
+                span{
+                    color: white !important;
+                }
+                &:hover{
+                    color: white !important;
+                }
+            }
+        }
+        &.active{
+            background: $babyblue;
+            border-color: $babyblue;
+            a{
+                color: $patblue !important;
+            }
+        }
+        &:not(.disabled):hover{
+            background-color: $glitter;
+            color: $patblue;
+            a{
+                color: $patblue !important;
+                text-decoration: none;
+            }
+        }   
+        a, span{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: $babyblue !important;
+            font-weight: 600;
+            font-weight: $baloo;
+            transition: $animation;
+            text-decoration: none;
+            &:hover{
+                color: $patblue !important;
+            }
+        }
+        
+    }
+    span{
+        font-size: $font-normal-mobile;
+    }
+}
 
 /*--------------------- NAVBAR ---------------------*/
-nav{
+nav.navbar{
     background: $patblue;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+    box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.5);
+    .navbar-toggler{
+        color: #A3CEF1;
+        padding: 0;
+        border: 1px solid;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+    }
+    .search-form{
+        @include max-md{
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: center;
+        }
+    }
+    .nav-social-icon{
+        display: inline-block;
+        margin-right: 15px;
+    }
     a, p{
         color: $babyblue;
+    }
+    a.nav-link{
+        &:hover{
+            color: $lakeblue !important; 
+        }
     }
     ul{
         li{
@@ -74,25 +235,134 @@ nav{
     }
 }
 
+/*--------------------- BANNER ---------------------*/
+.banner{
+    padding-top: 30%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    @include max-lg{
+        min-height: 350px;
+    }
+    @include max-sm{
+        min-height: 250px;
+    }
+    .banner-content{
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        padding-left: 40px;
+        @include max-sm{
+            padding-left: 15px;
+        }
+        .container{
+            h1{
+                color: white;
+                font-size: 72px;
+                text-transform: uppercase;
+                text-shadow: -5px 5px 5px $black-transparent;
+                @include max-lg{
+                    font-size: 56px;
+                }
+                @include max-sm{
+                    font-size: 32px;
+                }
+            }
+        }
+    }
+    &::before{
+        content: '';
+        display: block;
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $black-transparent;
+    }
+}
 
 /*--------------------- SECTIONS ---------------------*/
 .block-section{
+    a{
+        color: $patblue;   
+    }
+    small{
+        margin-bottom: 10px;
+        display: block;
+        font-size: $font-normal;
+    }
 
     #section-posts{
         article.post-article{
-            margin-bottom: 30px;
-            padding-bottom: 30px;
-            border-bottom: 1px solid $taupegray;
+            width: 90%;
+            margin: 60px auto 0 auto;
+            padding-bottom: 60px;
+            border-bottom: 1px solid $taupegray-transparent;
+            @include max-sm{
+                padding-bottom: 20px;
+                margin: 20px auto 0 auto;
+            }
+            .post-article-content{
+                background: white;
+                padding: 20px 30px 60px 30px;
+                border-radius: 4px;
+                box-shadow: -5px 5px 15px -5px rgba(0,0,0,0.5);
+                @include max-sm{
+                    padding: 10px 15px;
+                }
+            }
             .thumbnail{
                 width: 100%;
                 padding-top: 30%;
                 background-size: cover;
                 background-repeat: no-repeat;
                 background-position: center;
+                margin-bottom: 30px;
+                margin-top: 10px;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                border: 2px solid;
+                @include max-sm{
+                    padding-top: 60%;
+                }
             }
         }
     }
 
+    .the-post-section{
+        .block-section-content{
+            .container{
+                background: white;
+                padding-top: 30px;
+                padding-bottom: 30px;
+                border-radius: 5px;
+            
+                img{
+                    width: 100%;
+                    margin-bottom: 20px;
+                }
+                small{
+                    display: inline-block;
+                    margin-right: 15px;
+                }
+                p{
+                    border-top: 2px solid $patblue;
+                    border-bottom: 2px solid $patblue;
+                    padding: 30px 0px;
+                    margin-top: 7px;
+                }
+            }
+        }
+    }
 }
 
 

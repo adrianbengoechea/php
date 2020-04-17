@@ -4,14 +4,17 @@ define('ROUTE', 'http://localhost/udemyphp/Blog/');
 define('URL', '/udemyphp/Blog/');
 
 $blog_config = array(
-    'posts_per_page' => 4,
-    'folder_img' => 'assets/img'
+    'posts_per_page' => 3,
+    'folder_img' => 'assets/img/'
 );
 
 $blog_admin = array(
     'user' => 'admin',
     'pass' => 'Welcome123#'
 );
+
+$posts_per_page = $blog_config['posts_per_page'];
+$folder_img = $blog_config['folder_img'];
 
 // FUNCTIONS
 function db($sql, $values){
@@ -37,6 +40,38 @@ function db($sql, $values){
     return $consult->fetchAll();
 }
 
+function return_home(){
+    header('Location: http://localhost/udemyphp/Blog/');
+}
+
+function actual_page(){
+    return (isset($_GET['p'])) ? (int)$_GET['p'] : 1;
+}
+
+function get_posts($config){
+    $posts_per_page = $config['posts_per_page'];
+    $start = (actual_page() > 1) ? actual_page() * $posts_per_page - $posts_per_page : 0;
+    $sentences = db("SELECT SQL_CALC_FOUND_ROWS * FROM data LIMIT $start, $posts_per_page", array()); 
+
+    return $sentences;
+}
+
+function date_to_string($the_date){
+    $date_transformed = DateTime::createFromFormat('m/d/Y', $the_date);
+    return $date_transformed->format('l jS F Y');
+}
+
+function number_of_pages($posts_per_page) {
+    $total_posts =  count(db('SELECT * FROM data', array())) / $posts_per_page;
+
+    if( is_numeric( $total_posts) && floor($total_posts) != $total_posts ){
+        return floor($total_posts) + 1;
+    }else{
+        return $total_posts;
+    }
+    
+}
+
 
 
 
@@ -46,8 +81,8 @@ function db($sql, $values){
 // $date = date("m/d/Y");
 // $text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc accumsan est nec ligula condimentum elementum. Aenean dictum arcu vel mollis rutrum. Aliquam libero augue, egestas nec nisl ut, facilisis auctor erat. Sed risus dolor, vulputate porta sapien nec, facilisis finibus ante. Vivamus aliquet massa sit amet leo imperdiet hendrerit. Nulla ultricies ligula sed lobortis venenatis. Donec in tempor tellus. Mauris quis mattis leo, at eleifend odio. Morbi pellentesque lacus eget tortor dictum commodo. Fusce a tortor eu tellus ultricies viverra at at ante. Curabitur vitae dolor ut lacus volutpat viverra sit amet sed libero. Cras efficitur metus bibendum, faucibus est non, rutrum purus. Praesent sit amet mi a ex porttitor rhoncus. Cras ut quam volutpat, porttitor arcu ut, aliquam eros. Quisque eleifend efficitur ligula feugiat ultricies. # ';
 // $thumbnail = 'photo-';
-// for($i = 1; $i <= 8; $i++){
-//     print_r(db('INSERT INTO `data` (`title`, `extract`, `date`, `text`, `thumbnail`) VALUES (:q1, :q2, :q3, :q4, :q5)', array(':q1'=>$title.$i, ':q2'=>$extract.$i, ':q3'=>$date, ':q4'=>$text.$i, ':q5'=>$thumbnail.$i.'.jpg')));
+// for($i = 9; $i <= 18; $i++){
+//     print_r(db('INSERT INTO `data` (`title`, `extract`, `date`, `text`, `thumbnail`, `author`) VALUES (:q1, :q2, :q3, :q4, :q5, :q6)', array(':q1'=>$title.$i, ':q2'=>$extract.$i, ':q3'=>$date, ':q4'=>$text.$i, ':q5'=>$thumbnail.$i.'.jpg', ':q6'=>'admin')));
 // } 
 // echo $date;
                     

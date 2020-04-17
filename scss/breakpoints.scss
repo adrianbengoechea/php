@@ -1,0 +1,69 @@
+/*--------------------- BREAKPOINTS ---------------------*/
+
+// Max Width Breakpoints
+$screen-max-sm: 575px;
+$screen-max-md: 767px;
+$screen-max-lg: 991px;
+$screen-max-xl: 1199px;
+$screen-min-insane: 1919px;
+
+// Min Width Breakpoints
+$screen-min-sm: 576px;
+$screen-min-md: 768px;
+$screen-min-lg: 992px;
+$screen-min-xl: 1200px;
+$screen-min-insane: 1920px;
+
+
+@mixin max-sm{
+    @media screen and (max-width: $screen-max-sm){
+        @content;
+    }
+}
+@mixin max-md{
+    @media screen and (max-width: $screen-max-md){
+        @content;
+    }
+}
+@mixin max-lg{
+    @media screen and (max-width: $screen-max-lg){
+        @content;
+    }
+}
+@mixin max-xl{
+    @media screen and (max-width: $screen-max-xl){
+        @content;
+    }
+}
+@mixin max-insane{
+    @media screen and (max-width: $screen-max-insane){
+        @content;
+    }
+}
+
+
+@mixin min-sm{
+    @media screen and (min-width: $screen-min-sm){
+        @content;
+    }
+}
+@mixin min-md{
+    @media screen and (min-width: $screen-min-md){
+        @content;
+    }
+}
+@mixin min-lg{
+    @media screen and (min-width: $screen-min-lg){
+        @content;
+    }
+}
+@mixin min-xl{
+    @media screen and (min-width: $screen-min-xl){
+        @content;
+    }
+}
+@mixin min-insane{
+    @media screen and (min-width: $screen-min-insane){
+        @content;
+    }
+}
