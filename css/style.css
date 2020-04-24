@@ -353,6 +353,11 @@ nav.navbar ul .nav-contact {
   padding: 30px 0px;
   margin-top: 7px;
 }
+.block-section #searching-section .post-searching-article {
+  margin-top: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid;
+}
 
 /*--------------------- FOOTER ----------------------------*/
 footer {

@@ -17,6 +17,22 @@ $posts_per_page = $blog_config['posts_per_page'];
 $folder_img = $blog_config['folder_img'];
 
 // FUNCTIONS
+function admin_loggedin(){
+    $login_page = get_page('admin/login');
+    $actual_page = get_actual_page();
+
+    if($login_page != $actual_page){
+         return false;
+    }else{
+        return true;
+    }
+    
+}
+
+if(!admin_loggedin()){
+    return_login_admin();
+}
+
 function db($sql, $values){
 
     # DB Connection
@@ -40,8 +56,37 @@ function db($sql, $values){
     return $consult->fetchAll();
 }
 
+function get_page($slug) {
+    $the_page = ROUTE . $slug . '.php';
+    return $the_page; 
+}
+
+function get_actual_page() {
+    return 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+}
+
 function return_home(){
     header('Location: http://localhost/udemyphp/Blog/');
+}
+
+function return_login_admin(){
+    header('Location: http://localhost/udemyphp/Blog/admin/login.php');
+}
+
+function search_exist(){
+    if(isset($_GET['s']) && trim($_GET['s']) != ''){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+function search_results(){
+    if(isset($_GET['s']) && trim($_GET['s']) != ''){
+        $the_search = filter_var(trim($_GET['s']), FILTER_SANITIZE_STRING);
+
+        return db('SELECT * FROM data WHERE `title` LIKE :search OR `extract` LIKE :search', array(':search'=>"%$the_search%"));
+    }
 }
 
 function actual_page(){
