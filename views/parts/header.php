@@ -15,6 +15,6 @@
     <!-- FONTS -->
     <link rel="stylesheet" href="assets/fonts/baloo-paaji.css">
 
-    <title>Blog</title>
+    <title><?php echo $settings['page-title']; ?></title>
 </head>
 <body>

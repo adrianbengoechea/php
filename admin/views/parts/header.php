@@ -6,15 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- FRAMEWORKS / LIBRARIES -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo ROUTE; ?>css/bootstrap.min.css">
 
     <!-- SITE STYLES -->
-    <link rel="stylesheet" href="css/resets.css">
     <link rel="stylesheet" href="css/style.css">
 
-    <!-- FONTS -->
-    <link rel="stylesheet" href="assets/fonts/baloo-paaji.css">
-
-    <title>Blog</title>
+    <title>ADMIN</title>
 </head>
 <body>

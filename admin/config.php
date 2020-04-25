@@ -1,7 +1,17 @@
 <?php
 
-define('ROUTE', 'http://localhost/udemyphp/Blog/');
-define('URL', '/udemyphp/Blog/');
+define('PROTOCOL', 'http://');
+define('URL', '/udemyphp/blog/');
+
+define('SITE_TITLE', 'The Master Blog');
+define('ROUTE', PROTOCOL . 'localhost' . URL);
+define('IMG_URI', ROUTE . 'assets/img/');
+
+session_start();
+
+if(get_actual_page_uri() == get_page('admin/config')){
+    return_home();
+}
 
 $blog_config = array(
     'posts_per_page' => 3,
@@ -18,19 +28,16 @@ $folder_img = $blog_config['folder_img'];
 
 // FUNCTIONS
 function admin_loggedin(){
-    $login_page = get_page('admin/login');
-    $actual_page = get_actual_page();
-
-    if($login_page != $actual_page){
-         return false;
-    }else{
+    if(isset($_SESSION['admin']) && !empty($_SESSION['admin'])){
         return true;
     }
-    
+    return false;
 }
 
-if(!admin_loggedin()){
-    return_login_admin();
+function check_loggedin(){
+    if(get_actual_page_uri() != get_page('admin/login') && !admin_loggedin()){
+        return_login_admin();
+    }
 }
 
 function db($sql, $values){
@@ -61,16 +68,21 @@ function get_page($slug) {
     return $the_page; 
 }
 
-function get_actual_page() {
-    return 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+function get_actual_page_uri() {
+    $uri = PROTOCOL . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+    return strtolower($uri);
 }
 
 function return_home(){
-    header('Location: http://localhost/udemyphp/Blog/');
+    header('Location: http://localhost/udemyphp/blog/');
 }
 
 function return_login_admin(){
-    header('Location: http://localhost/udemyphp/Blog/admin/login.php');
+    header('Location: http://localhost/udemyphp/blog/admin/login.php');
+}
+
+function return_admin(){
+    header('Location: http://localhost/udemyphp/blog/admin/index.php');
 }
 
 function search_exist(){
@@ -84,7 +96,6 @@ function search_exist(){
 function search_results(){
     if(isset($_GET['s']) && trim($_GET['s']) != ''){
         $the_search = filter_var(trim($_GET['s']), FILTER_SANITIZE_STRING);
-
         return db('SELECT * FROM data WHERE `title` LIKE :search OR `extract` LIKE :search', array(':search'=>"%$the_search%"));
     }
 }

@@ -6,13 +6,13 @@
 
             <?php include 'parts/navbar.php'; ?>
 
-            <?php include 'parts/title.php'; ?>
+            <?php include 'parts/banner.php'; ?>
 
         </header>
 
         <section class="wrapper-content container-fluid">
 
-            <?php include 'parts/the-post.php' ?>
+            <?php include 'parts/single.php' ?>
 
         </section>
 

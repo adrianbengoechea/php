@@ -6,7 +6,7 @@
 
             <?php include 'parts/navbar.php'; ?>
 
-            <?php include 'parts/title.php'; ?>
+            <?php include 'parts/banner.php'; ?>
 
         </header>
 

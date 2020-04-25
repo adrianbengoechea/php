@@ -1,0 +1,30 @@
+html {
+    height: 100%;
+  }
+  
+  body {
+    background: #E7ECEF;
+    height: 100%;
+  }
+  
+  main.wrapper {
+    min-height: calc(100% - 40px);
+  }
+footer {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  background: #274C77;
+  color: #A3CEF1;
+  font-weight: 600;
+}
+.max-600{
+  max-width: 600px;
+}
+
+#admin_login{
+
+}
+#admin_login label, #admin_login label input{
+  width: 100%;
+}
