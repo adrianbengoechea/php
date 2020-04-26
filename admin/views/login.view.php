@@ -57,11 +57,15 @@
                                     <div class="col-12">
                                         <input type="submit" value="LOGIN" name="submit" class="btn btn-primary" >
                                     </div>
+                                    <div class="col-12 pt-5">
+                                        <a href="<?php echo ROUTE; ?>">← Return to home</a>
+                                    </div>
                                 </div>
                             </div>
                         </form>  
 
                     </div>
+                    
 
                 </div>
 

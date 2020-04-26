@@ -39,7 +39,7 @@
                                                 <h3>Search Not Found.</h3>
                                             </div>
                                             <div class="mt-4">
-                                                <a href="<?php echo ROUTE; ?>">Return To Home</a>
+                                                <a href="<?php echo ROUTE; ?>">← Return To Home</a>
                                             </div>
 
                                         </div>

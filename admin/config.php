@@ -2,16 +2,16 @@
 
 define('PROTOCOL', 'http://');
 define('URL', '/udemyphp/blog/');
-
 define('SITE_TITLE', 'The Master Blog');
 define('ROUTE', PROTOCOL . 'localhost' . URL);
 define('IMG_URI', ROUTE . 'assets/img/');
+define('ADMIN_URI', ROUTE . 'admin/');
 
 session_start();
 
 if(get_actual_page_uri() == get_page('admin/config')){
     return_home();
-}
+}   
 
 $blog_config = array(
     'posts_per_page' => 3,

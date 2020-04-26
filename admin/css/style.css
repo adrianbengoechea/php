@@ -1,15 +1,15 @@
 html {
-    height: 100%;
-  }
+  height: 100%;
+}
   
-  body {
-    background: #E7ECEF;
-    height: 100%;
-  }
+body {
+  background: #E7ECEF;
+  height: 100%;
+}
   
-  main.wrapper {
-    min-height: calc(100% - 40px);
-  }
+main.wrapper {
+  min-height: calc(100% - 40px);
+}
 footer {
   height: 40px;
   display: flex;
@@ -21,10 +21,20 @@ footer {
 .max-600{
   max-width: 600px;
 }
+.wrapper{
+  display: flex;
+  flex-wrap: wrap;
+}
 
 #admin_login{
 
 }
 #admin_login label, #admin_login label input{
   width: 100%;
+}
+.wrapper-aside{
+  width: 20%;
+}
+.wrapper-content{
+  width: 80%;
 }
