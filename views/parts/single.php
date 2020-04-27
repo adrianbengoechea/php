@@ -16,7 +16,7 @@
                     </div>
                     <div class="col-12">
                         <p>
-                            <?php echo $post_data[0]['text']; ?>
+                            <?php echo nl2br($post_data[0]['text']); ?>
                         </p>
                     </div>
                 </div>

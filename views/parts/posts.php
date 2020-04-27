@@ -14,14 +14,14 @@
                                 <article class="post-article">
                                     <div id="post-article-<?php echo $el['id']; ?>">
                                         <div class="post-article-content">
-                                            <h3><a href="<?php echo URL; ?>article.php?id=<?php echo $el['id'];?>"><?php echo $el['title']; ?></a></h3>
+                                            <h3><a href="<?php echo ROUTE; ?>article.php?id=<?php echo $el['id'];?>"><?php echo $el['title']; ?></a></h3>
                                             <small><?php echo date_to_string($el['date']); ?></small>
-                                            <a href="<?php echo URL; ?>article.php?id=<?php echo $el['id'];?>">
+                                            <a href="<?php echo ROUTE; ?>article.php?id=<?php echo $el['id'];?>">
                                                 <div class="thumbnail" style="background-image: url('<?php echo ROUTE . $folder_img; ?><?php echo $el['thumbnail']; ?>')">
                                                 </div>
                                             </a>
                                             <p>
-                                                <?php echo $el['extract']; ?>
+                                                <?php echo nl2br($el['extract']); ?>
                                             </p>
                                         </div>
                                     </div>
@@ -48,7 +48,7 @@
                                         </li>
                                     <?php else: ?>
                                         <li class="list-inline-item">
-                                            <a href="<?php echo URL; ?>index.php?p=<?php echo actual_page() - 1 ?>">
+                                            <a href="<?php echo ROUTE; ?>index.php?p=<?php echo actual_page() - 1 ?>">
                                                 <span class="back">
                                                     <i class="fas fa-chevron-left"></i>
                                                 </span>
@@ -60,11 +60,11 @@
 
                                         <?php if(actual_page() === $i): ?>
                                             <li class="list-inline-item active">
-                                                <a href="<?php echo URL; ?>index.php?p=<?php echo $i; ?>"><?php echo $i; ?></a>
+                                                <a href="<?php echo ROUTE; ?>index.php?p=<?php echo $i; ?>"><?php echo $i; ?></a>
                                             </li>
                                         <?php else: ?>
                                             <li class="list-inline-item">
-                                                <a href="<?php echo URL; ?>index.php?p=<?php echo $i; ?>"><?php echo $i; ?></a>
+                                                <a href="<?php echo ROUTE; ?>index.php?p=<?php echo $i; ?>"><?php echo $i; ?></a>
                                             </li>
                                         <?php endif; ?>
 
@@ -82,7 +82,7 @@
                                         </li>
                                     <?php else: ?>
                                         <li class="list-inline-item">
-                                            <a href="<?php echo URL; ?>index.php?p=<?php echo actual_page() + 1 ?>">
+                                            <a href="<?php echo ROUTE; ?>index.php?p=<?php echo actual_page() + 1 ?>">
                                                 <span class="back">
                                                     <i class="fas fa-chevron-right"></i>
                                                 </span>

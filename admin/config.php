@@ -1,13 +1,18 @@
 <?php
 
+
+session_start();
+
 define('PROTOCOL', 'http://');
 define('URL', '/udemyphp/blog/');
-define('SITE_TITLE', 'The Master Blog');
+
 define('ROUTE', PROTOCOL . 'localhost' . URL);
 define('IMG_URI', ROUTE . 'assets/img/');
 define('ADMIN_URI', ROUTE . 'admin/');
 
-session_start();
+$title = db("SELECT instruction FROM settings WHERE name = 'site_name'", array());
+define('SITE_TITLE', $title[0][0]);
+
 
 if(get_actual_page_uri() == get_page('admin/config')){
     return_home();
@@ -16,11 +21,6 @@ if(get_actual_page_uri() == get_page('admin/config')){
 $blog_config = array(
     'posts_per_page' => 3,
     'folder_img' => 'assets/img/'
-);
-
-$blog_admin = array(
-    'user' => 'admin',
-    'pass' => 'Welcome123#'
 );
 
 $posts_per_page = $blog_config['posts_per_page'];
@@ -62,6 +62,8 @@ function db($sql, $values){
     # Return with all elements finded
     return $consult->fetchAll();
 }
+
+
 
 function get_page($slug) {
     $the_page = ROUTE . $slug . '.php';
@@ -107,7 +109,13 @@ function actual_page(){
 function get_posts($config){
     $posts_per_page = $config['posts_per_page'];
     $start = (actual_page() > 1) ? actual_page() * $posts_per_page - $posts_per_page : 0;
-    $sentences = db("SELECT SQL_CALC_FOUND_ROWS * FROM data LIMIT $start, $posts_per_page", array()); 
+    $sentences = db("SELECT * FROM data LIMIT $start, $posts_per_page", array()); 
+
+    return $sentences;
+}
+
+function get_all_posts($config){
+    $sentences = db("SELECT * FROM data", array()); 
 
     return $sentences;
 }
@@ -128,7 +136,9 @@ function number_of_pages($posts_per_page) {
     
 }
 
-
+function refresh(){
+    header("Refresh:0");
+}
 
 
 

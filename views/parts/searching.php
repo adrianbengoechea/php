@@ -21,7 +21,7 @@
                                                     </div>
                                                 </a>
                                                 <p>
-                                                    <?php echo $el['extract']; ?>
+                                                    <?php echo nl2br($el['extract']); ?>
                                                 </p>
                                             </div>
                                         </div>

@@ -16,7 +16,7 @@
 
                     <div class="col-12">
 
-                        <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="POST" id="admin_login" class="pt-5 max-600 mx-auto">
+                        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="POST" id="admin_login" class="pt-5 max-600 mx-auto">
                             <div class="container pt-5">
                                 <div class="row">
                                     <div class="col-12">
