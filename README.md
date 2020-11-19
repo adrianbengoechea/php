@@ -1,5 +1,7 @@
 Install "The Master Blog S" proyect.
 
+Note: this project is used in conjunction with the XAMPP application
+
 (Localhost Guide)
 
 1. Clone the repository in your directory
