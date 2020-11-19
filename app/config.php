@@ -1,5 +1,17 @@
 <?php
-define('SITE_ROOT', $_SERVER['DOCUMENT_ROOT'] . '/buh_notes/');
+
+define('PROTOCOL', '//');
+define('HOST', $_SERVER['HTTP_HOST']);
+
+define('DIRNAME', '/git-check/buh-notes');
+
+// define('SITE_ROOT', $_SERVER['DOCUMENT_ROOT'] . DIRNAME);
+// print_r(DIRNAME);
+// exit;
+
+// print_r(DIRNAME);
+
+// exit;
 
 # SESSION
 session_start();
@@ -7,10 +19,10 @@ session_start();
 # LOGIN VERIFICATION
 $actual_login_page = false;
 $excluded_pages = array(
-	'/buh_notes/login.php', 
-	'/buh_notes/register.php', 
-	'/buh_notes/app/register-processor.php', 
-	'/buh_notes/app/login-processor.php'
+	DIRNAME . '/login.php', 
+	DIRNAME . '/register.php', 
+	DIRNAME . '/app/register-processor.php', 
+	DIRNAME . '/app/login-processor.php'
 );
 if(logged()){
 	foreach($excluded_pages as $page){
@@ -70,13 +82,16 @@ function alert_message($message, $class){
   $_SESSION['alert_message_class'] = $class;
 }
 function redirect_to_home(){
-  header('Location: http://localhost/buh_notes/index.php');
+	$redirect_home_uri = PROTOCOL . HOST . DIRNAME . '/index.php';
+  header('Location: ' . $redirect_home_uri);
 }
 function redirect_to_register(){
-  header('Location: http://localhost/buh_notes/register.php');
+	$redirect_register_uri = PROTOCOL . HOST . DIRNAME . '/register.php';
+  header('Location: ' . $redirect_register_uri);
 }
 function redirect_to_login(){
-  header('Location: http://localhost/buh_notes/login.php');
+	$redirect_login_uri = PROTOCOL . HOST . DIRNAME . '/login.php';
+  header('Location: ' . $redirect_login_uri);
 }
 
 
