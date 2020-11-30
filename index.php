@@ -1,69 +1,90 @@
 <?php
-  include_once 'connection.php';
 
-$sql_read = 'SELECT * FROM colors';
-$sql_add = 'INSERT INTO colors (color, description) VALUES (?, ?)';
+include_once('./inc/connection.php');
 
+$query = 'SELECT * FROM `events`';
+$execute_query = $pdo->prepare($query);
+$execute_query->execute();
+$result = $execute_query->fetchAll();
 
-// Read
-  $gsent = $pdo->prepare($sql_read);
-  $gsent->execute();
-  $result = $gsent->fetchAll();
-
-//Add
-  if($_POST){
-    $actual_color = $_POST['color'];
-    $actual_description = $_POST['description'];
-
-    $sql_insert = $pdo->prepare($sql_add);
-    $sql_insert->execute(array($actual_color, $actual_description));
-
-    header('location:index.php');
-  }
-
+// print_r($result);
 
 ?>
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>Welcome to my first DB connection on PHP!</title>
+
   </head>
   <body>
 
-
     <div class="wrapper">
-        <div class="container">
-          <div class="row">
-            <div class="col-6 pt-2">
-              <?php foreach($result as $dato): ?>
-                <div class="alert alert-<?php echo $dato['color']; ?>">
-                  <?php echo $dato['color']; ?> - <?php echo $dato['description']?>
-                </div>
-              <?php endforeach ?>
-            </div>
-            <div class="col-6">
-              <form method="POST">
-                  <input type="text" name="color" class="form-control my-2" placeholder="Color..." minlength="1" title="No blank field" required>
-                  <input type="text" name="description" class="form-control my-2" placeholder="Description..." minlength="1" title="No blank field required">
-                  <button class="btn btn-primary mt-4">Add</button>
-              </form>
-            </div>
-          </div>
-        </div>
-    </div>
+      <div class="container">
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+      
+        <div class="row justify-content-center py-5">
+          <?php if( !empty($result) ): ?>
+            <div class="col-10">
+              <h1 class="w-100 d-block text-center"><strong>Here are your reminders!</strong></h1>
+            </div>
+            <div class="col-10">
+              <table class="table table-striped table-bordered mt-5">
+
+                <colgroup>
+                  <col span="1" style="width: 35%">
+                  <col span="1" style="width: 25%">
+                  <col span="1" style="width: 15%">
+                  <col span="1" style="width: 25%">
+                </colgroup>
+
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Notifications</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <?php foreach( $result as $item ): ?>
+                    <tr>
+                      <td><?php echo $item['name']; ?></td>
+                      <td><?php echo $item['date']; ?></td>
+                      <td><?php echo $item['time']; ?></td>
+                      <td>
+                        <span class="d-block">Email: <?php echo ( $item['email'] == 1 ) ? 'Yes' : 'No'; ?></span>
+                        <span class="d-block">SMS: <?php echo ( $item['sms'] == 1 ) ? 'Yes' : 'No'; ?></span>
+                      </td>
+                    </tr>
+                  <?php endforeach; ?>
+                </tbody>
+
+              </table>
+            </div>
+          <?php else: ?>
+            <div class="col-8">
+              <h1 class="w-100 d-block text-center"><strong>You have not events.</strong></h1>
+            </div>
+          <?php endif; ?>
+
+          <div class="col-12 mt-4 text-center">
+            You can create a new event by clicking <a href="<?php echo PATH; ?>/create.php">here.</a>
+          </div>
+
+        </div>
+     
+
+
+      </div>
+    </div>
+    
   </body>
 </html>
